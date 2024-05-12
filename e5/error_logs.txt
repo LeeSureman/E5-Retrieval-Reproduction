@@ -1,0 +1,1248 @@
+2024-04-18 02:00:17.367333 >>> ArguAna
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.372674 >>> TRECCOVID
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.377533 >>> Touche2020
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.382339 >>> FiQA2018
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.387164 >>> NFCorpus
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.391989 >>> SciFact
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.398208 >>> SCIDOCS
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.402985 >>> QuoraRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.407770 >>> CQADupstackAndroidRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.412559 >>> CQADupstackEnglishRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.417328 >>> CQADupstackGamingRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.422092 >>> CQADupstackGisRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.426894 >>> CQADupstackMathematicaRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.431727 >>> CQADupstackPhysicsRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.436466 >>> CQADupstackProgrammersRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.441173 >>> CQADupstackStatsRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.445866 >>> CQADupstackTexRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.450552 >>> CQADupstackUnixRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.455273 >>> CQADupstackWebmastersRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.460027 >>> CQADupstackWordpressRetrieval
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.464723 >>> NQ
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.469438 >>> DBPedia
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.474116 >>> HotpotQA
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.478824 >>> FEVER
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.483633 >>> ClimateFEVER
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 02:00:17.488321 >>> MSMARCO
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-18 03:29:24.357580 >>> QuoraRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/quora.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/quora.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:24.447599 >>> CQADupstackAndroidRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:24.538644 >>> CQADupstackEnglishRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:24.625519 >>> CQADupstackGamingRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:24.738718 >>> CQADupstackGisRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:24.827168 >>> CQADupstackMathematicaRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:24.919937 >>> CQADupstackPhysicsRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:25.016562 >>> CQADupstackProgrammersRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:25.108961 >>> CQADupstackStatsRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:25.203369 >>> CQADupstackTexRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-18 03:29:25.303867 >>> CQADupstackUnixRetrieval
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='public.ukp.informatik.tu-darmstadt.de', port=443): Max retries exceeded with url: /thakur/BEIR/datasets/cqadupstack.zip (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+
+2024-04-19 07:54:01.190360 >>> MSMARCO
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 779, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1048, in _prepare_proxy
+    conn.connect()
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 779, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1048, in _prepare_proxy
+    conn.connect()
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/ssl.py", line 1375, in do_handshake
+    self._sslobj.do_handshake()
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 88, in download_and_unzip
+    download_url(url, zip_file, chunk_size)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 62, in download_url
+    r = requests.get(url, stream=True)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+
+2024-04-21 02:27:00.382691 >>> DBPedia
+Traceback (most recent call last):
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/mteb/abstasks/BeIRTask.py", line 48, in load_data
+    data_path = util.download_and_unzip(url, download_path)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 92, in download_and_unzip
+    unzip(zip_file, out_dir)
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/site-packages/beir/util.py", line 76, in unzip
+    zip_ = zipfile.ZipFile(zip_file, "r")
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/zipfile.py", line 1271, in __init__
+    self._RealGetContents()
+  File "/home/paibo/anaconda3/envs/llm/lib/python3.10/zipfile.py", line 1338, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
+
+
+2024-04-23 17:47:05.852514 >>> ArguAna
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.905568 >>> TRECCOVID
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.909500 >>> Touche2020
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.913383 >>> FiQA2018
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.917244 >>> NFCorpus
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.921080 >>> SciFact
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.934450 >>> SCIDOCS
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.938294 >>> QuoraRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.942102 >>> CQADupstackAndroidRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.945902 >>> CQADupstackEnglishRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.949742 >>> CQADupstackGamingRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.953578 >>> CQADupstackGisRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.957394 >>> CQADupstackMathematicaRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.961197 >>> CQADupstackPhysicsRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.965027 >>> CQADupstackProgrammersRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.969262 >>> CQADupstackStatsRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.973088 >>> CQADupstackTexRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.976889 >>> CQADupstackUnixRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.980721 >>> CQADupstackWebmastersRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+
+2024-04-23 17:47:05.984546 >>> CQADupstackWordpressRetrieval
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 16, in load_data
+    from beir import util
+ModuleNotFoundError: No module named 'beir'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/evaluation/MTEB.py", line 225, in run
+    task.load_data(eval_splits=task_eval_splits)
+  File "/remote-home/ctzhu/anaconda/envs/llm/lib/python3.11/site-packages/mteb/abstasks/BeIRTask.py", line 18, in load_data
+    raise Exception("Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`")
+Exception: Retrieval tasks require beir package. Please install it with `pip install mteb[beir]`
+
+

@@ -1,0 +1,21 @@
+password: VgsUYOCxK5EF
+
+scp -P 30281 -r ./multi_retrieval_data lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat/
+
+scp -P 30281 -r ./multi_retrieval_data/eli5.jsonl lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat/multi_retrieval_data/eli5.jsonl
+
+scp -P 30281 -r lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat/checkpoint_dir/tmp_debug checkpoint_dir/
+
+scp -P 30281 -r Tevatron lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/tevatron/examples/repllama
+
+scp -P 30281 -r ./msmarco_for_debug_64 lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat
+
+scp -P 30281 -r ./multi_retrieval_data_top_200_hn_filtered lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat/
+
+scp -P 30281 -r ./tevatron_original_data_light_msmarco_triviaqa lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat/
+
+scp -P 30281 -r ./tevatron_msmarco_psg_our_hn lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat/
+
+scp -P 30082 -r /remote-home/share/personal/ctzhu/pseudo_psg/nq_pseudo_psg.jsonl lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/fast_chat/nq_pseudo_psg
+
+scp -P 30082 -r mistral_instrcut_pseudo_psg_test lxn_20110240012@10.193.2.99:/cpfs01/projects-HDD/cfff-6ef6b3b71ce2_HDD/lxn_20110240012/mycode/e5/V5

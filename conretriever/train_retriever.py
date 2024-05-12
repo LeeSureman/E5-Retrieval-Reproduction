@@ -1,22 +1,6 @@
-# This code is based on tatsu-lab/stanford_alpaca. Below is the original copyright:
-#
-#    Copyright 2023 Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann Dubois, Xuechen Li
-#
-#    Licensed under the Apache License, Version 2.0 (the "License");
-#    you may not use this file except in compliance with the License.
-#    You may obtain a copy of the License at
-#
-#        http://www.apache.org/licenses/LICENSE-2.0
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS,
-#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    See the License for the specific language governing permissions and
-#    limitations under the License.
 import copy
 import os
 import sys
-
 sys.path.append('.')
 sys.path.append('..')
 import random
@@ -24,21 +8,17 @@ from dataclasses import dataclass, field
 import json
 import math
 import pathlib
-from typing import Dict, Optional, Sequence
+from typing import Dict, Optional
 import jsonlines
-import numpy as np
 import torch
 from torch.utils.data import Dataset
 import transformers
-import typing
-# from transformers import Trainer
 from my_trainer import My_Trainer
 from transformers.trainer_pt_utils import LabelSmoother
-from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+from peft import LoraConfig, get_peft_model
 import torch.distributed as dist
-from fastchat.conversation import SeparatorStyle
-from fastchat.model.model_adapter import get_conversation_template
-from torch.utils.data import DataLoader, Dataset, RandomSampler, SequentialSampler, DistributedSampler
+from torch.utils.data import Dataset
+
 
 IGNORE_TOKEN_ID = LabelSmoother.ignore_index
 
@@ -50,7 +30,7 @@ logger = _setup_logger()
 
 @dataclass
 class LoraArguments:
-    use_lora: int = 0
+    use_lora: bool = False
     lora_r: int = 8
     lora_alpha: int = 64
     lora_dropout: float = 0.1
@@ -91,8 +71,6 @@ class DataArguments:
     lazy_preprocess: bool = False
     data_root_dir: str = None
     data_sample_config: str = None
-    pseudo_psg_root_dir: str = None
-    pseudo_psg_prob: float=None
 
 
 @dataclass
@@ -134,12 +112,6 @@ def trainer_save_model_safe(trainer: transformers.Trainer):
         trainer.save_model()
 
 
-
-
-
-
-
-
 def add_special_token_for_sequence_embedding(input_str, eos_token, representation_token, representation_token_num):
     result = representation_token * representation_token_num
     return result
@@ -176,16 +148,12 @@ def tokenize_into_ids_with_special_token_for_sequence_embedding(input_str, token
 
     return result
 
-    # max_length - representation_special_tokens_num
-
 
 def load_multi_retrieval_raw_data(root_dir):
     result_data_dict = {}
     data_file_name_s = os.listdir(root_dir)
 
     for data_file_name in data_file_name_s:
-        if not data_file_name.endswith('.jsonl'):
-            continue
         data_fp = os.path.join(root_dir, data_file_name)
         data_task_name = data_file_name.split('.')[0]
         tmp_task_data = list(jsonlines.open(data_fp))
@@ -201,8 +169,7 @@ import prompt_config
 
 
 class RetrievalDataset(Dataset):
-    def __init__(self, args_dict, data_root_dir, pseudo_psg_root_dir, n_hard_negative,
-                 tokenizer: transformers.PreTrainedTokenizer,
+    def __init__(self, args_dict, data_root_dir, n_hard_negative, tokenizer: transformers.PreTrainedTokenizer,
                  representation_id,
                  representation_token_num, query_max_length, doc_max_length, wrap_q_p):
         self.args_dict = args_dict
@@ -221,23 +188,20 @@ class RetrievalDataset(Dataset):
         self.doc_max_length = doc_max_length
         self.wrap_q_p = wrap_q_p
 
-        task_weight_dict = getattr(data_sample_config,
-                                   self.args_dict['data_args']['data_sample_config'])
-        # print()
+        task_weight_dict = getattr(data_sample_config, self.args_dict['data_args']['data_sample_config'])
         for k, v in task_weight_dict.items():
             print('{}: {}'.format(k, v))
 
         self.update_one_epoch_data()
         self.task_to_query_type = prompt_config.task_to_query_type
         self.task_to_passage_type = prompt_config.task_to_passage_type
-        self.instruction_template = 'Given the following {}, give me {}.'
+        self.instruction_template = 'Given {}, retrieve {}.'
 
         for k in self.raw_data_task_to_dict:
             if k != 'synthetic':
                 rank0_print('instruction of task {}: {}'.format(k,
                                                                 self.instruction_template.format(self.task_to_query_type[k],
-                                                                                                 self.task_to_passage_type[
-                                                                                                     k])))
+                                                                                                 self.task_to_passage_type[k])))
 
         if 'synthetic' in self.raw_data_task_to_dict:
             rank0_print('synthetic data instruction examples:')
@@ -245,8 +209,7 @@ class RetrievalDataset(Dataset):
                 rank0_print(self.raw_data_task_to_dict['synthetic'][i]['instruction'])
 
         self.task_to_tid = {}
-        task_weight_dict = getattr(data_sample_config,
-                                   self.args_dict['data_args']['data_sample_config'])
+        task_weight_dict = getattr(data_sample_config, self.args_dict['data_args']['data_sample_config'])
         tasks = sorted(task_weight_dict.keys())
 
         self.tid_to_task = tasks
@@ -255,18 +218,6 @@ class RetrievalDataset(Dataset):
 
         for i, t in enumerate(tasks):
             logger.info('task {}: {}'.format(i, t))
-
-        if pseudo_psg_root_dir!=None:
-            self.raw_pseudo_psg_task_to_dict = load_multi_retrieval_raw_data(pseudo_psg_root_dir)
-            self.task_to_query_to_pseudo_psg = {}
-            for task, js_s in self.raw_pseudo_psg_task_to_dict.items():
-                self.task_to_query_to_pseudo_psg[task] = {}
-                for tmp_js in js_s:
-                    self.task_to_query_to_pseudo_psg[task][tmp_js['query']] = tmp_js['pseudo_psg']
-                print('task {} have {} queries which have pseudo psg'.format(task, len(self.task_to_query_to_pseudo_psg[task])))
-        else:
-            self.raw_pseudo_psg_task_to_dict = None
-            self.task_to_query_to_pseudo_psg = None
 
 
     def update_one_epoch_data(self, epoch=-1):
@@ -281,18 +232,15 @@ class RetrievalDataset(Dataset):
             task_weight_dict = getattr(data_sample_config,
                                        self.args_dict['data_args']['data_sample_config'])
             for k in self.raw_data_task_to_dict:
-                assert k in task_weight_dict, '{} not in {}'.format(k,
-                                                                    self.args_dict['data_args']['data_sample_config'])
+                assert k in task_weight_dict, '{} not in {}'.format(k, self.args_dict['data_args']['data_sample_config'])
 
             for task, task_data in self.raw_data_task_to_dict.items():
                 task_weight = task_weight_dict[task]
                 sampled_data_data = random.sample(task_data, int(task_weight * len(task_data)))
                 task_to_data_batch[task] = []
-                # logger.info('{} sampled_data_data:{}'.format(task, len(sampled_data_data)))
                 for i in range(len(sampled_data_data) // total_batch):
                     task_to_data_batch[task].append(sampled_data_data[i * total_batch: (i + 1) * total_batch])
-                # logger.info('task_to_data_batch[task]:{}'.format(len(task_to_data_batch[task][0])))
-                task_to_data_batch[task] = list(filter(lambda x: len(x) == total_batch, task_to_data_batch[task]))
+                task_to_data_batch[task] = list(filter(lambda x:len(x)==total_batch, task_to_data_batch[task]))
 
             for task, task_batchs in task_to_data_batch.items():
                 logger.info('{} training size: {}'.format(task, len(task_batchs) * total_batch))
@@ -320,9 +268,6 @@ class RetrievalDataset(Dataset):
             random.Random(1208 + epoch).shuffle(this_epoch_data)
 
         self.raw_data = this_epoch_data
-
-        # build query_to_pseudo_psg_dict
-
         logger.info('self.raw_data:{}'.format(len(self.raw_data)))
 
     def __len__(self):
@@ -334,9 +279,9 @@ class RetrievalDataset(Dataset):
         elif self.wrap_q_p == 'instruction':
             assert task != None
             if task != 'synthetic':
-                assert instruction == None
+                assert instruction==None
                 tmp_instruction = self.instruction_template.format(self.task_to_query_type[task],
-                                                                   self.task_to_passage_type[task])
+                                                                self.task_to_passage_type[task])
             else:
                 assert instruction != None
                 tmp_instruction = instruction.strip()
@@ -344,7 +289,7 @@ class RetrievalDataset(Dataset):
         else:
             raise NotImplementedError
         return result
-        pass
+
 
     def wrap_passage(self, passage, task=None):
         passage_split = passage.split('\n\n')
@@ -361,7 +306,6 @@ class RetrievalDataset(Dataset):
 
         return result
 
-        pass
 
     def __getitem__(self, i):
         raw_data = self.raw_data[i]
@@ -370,22 +314,10 @@ class RetrievalDataset(Dataset):
 
         task_name = raw_data['task']
         query = raw_data['query']
-        original_query = query
         if 'instruction' in raw_data:
             query = self.wrap_query(query, task=task_name, instruction=raw_data['instruction'])
         else:
             query = self.wrap_query(query, task=task_name)
-
-        if self.task_to_query_to_pseudo_psg != None:
-            if torch.rand(size=[]).item() < self.args_dict['data_args']['pseudo_psg_prob']:
-                # print('add pseudo psg')
-                assert original_query in self.task_to_query_to_pseudo_psg[task_name], '{}: {}'.format(task_name, original_query)
-                pseudo_psg = self.task_to_query_to_pseudo_psg[task_name][original_query]
-                query = '{}\nPseudo Passage:\n{}'.format(query, pseudo_psg)
-            else:
-                pass
-                # print('not add pseudo psg')
-
         positive_doc = raw_data['positive'][0]
         positive_doc = self.wrap_passage(positive_doc, task=task_name)
 
@@ -405,8 +337,6 @@ class RetrievalDataset(Dataset):
         positive_doc_ids = positive_doc_encoded['input_ids']
         positive_doc_attention_mask = positive_doc_encoded['attention_mask']
 
-        # positive_doc = positive_doc + self.tokenizer.eos_token + ' ' + self.representation_token * self.representation_token_num
-
         if 'negative' in raw_data:
             all_hard_negative = raw_data['negative']
             if self.n_hard_negative > 0 and len(all_hard_negative) == 0:
@@ -421,18 +351,6 @@ class RetrievalDataset(Dataset):
         hard_negative_docs_attention_mask = []
 
         for j, hard_negative_doc in enumerate(hard_negative_docs):
-            # hard_negative_doc = hard_negative_doc + self.tokenizer.eos_token + ' ' + self.representation_token * self.representation_token_num
-            # hard_negative_doc = add_special_token_for_sequence_embedding(hard_negative_doc,
-            #                                                              eos_token=self.tokenizer.eos_token,
-            #                                                              representation_token=self.representation_token,
-            #                                                              representation_token_num=self.representation_token_num)
-            # hard_negative_doc_ids = self.tokenizer(
-            #     hard_negative_doc,
-            #     return_tensors="pt",
-            #     padding="max_length",
-            #     max_length=self.tokenizer.model_max_length,
-            #     truncation=True,
-            # ).input_ids[0]
             hard_negative_doc = self.wrap_passage(hard_negative_doc, task=task_name)
             hard_negative_doc_encoded = tokenize_into_ids_with_special_token_for_sequence_embedding(hard_negative_doc,
                                                                                                     self.tokenizer,
@@ -458,106 +376,6 @@ class RetrievalDataset(Dataset):
         return result
 
 
-# class RetrievalDataset(Dataset):
-#     def __init__(self, raw_data, n_hard_negative, tokenizer: transformers.PreTrainedTokenizer, representation_id,
-#                  representation_token_num, ):
-#         self.tokenizer = tokenizer
-#         self.raw_data = raw_data
-#         self.cached_data_dict = {}
-#         self.n_hard_negative = n_hard_negative
-#         assert tokenizer.padding_side == 'right'
-#         self.representation_id = representation_id
-#         self.representation_token = self.tokenizer.convert_ids_to_tokens(representation_id)
-#         self.representation_token_num = representation_token_num
-#
-#     def __len__(self):
-#         return len(self.raw_data)
-#
-#     def __getitem__(self, i):
-#         raw_data = self.raw_data[i]
-#         query = raw_data['query']
-#         positive_doc = raw_data['positive'][0]
-#
-#         query = add_special_token_for_sequence_embedding(query,
-#                                                          eos_token=self.tokenizer.eos_token,
-#                                                          representation_token=self.representation_token,
-#                                                          representation_token_num=self.representation_token_num)
-#
-#         # positive_doc = positive_doc + self.tokenizer.eos_token + ' ' + self.representation_token * self.representation_token_num
-#
-#         positive_doc = add_special_token_for_sequence_embedding(positive_doc,
-#                                                          eos_token=self.tokenizer.eos_token,
-#                                                          representation_token=self.representation_token,
-#                                                          representation_token_num=self.representation_token_num)
-#
-#         query_ids = self.tokenizer(
-#             query,
-#             return_tensors="pt",
-#             padding="max_length",
-#             max_length=self.tokenizer.model_max_length,
-#             truncation=True,
-#         ).input_ids[0]
-#         query_attention_mask = query_ids.ne(self.tokenizer.pad_token_id)
-#
-#         positive_doc_ids = self.tokenizer(
-#             positive_doc,
-#             return_tensors="pt",
-#             padding="max_length",
-#             max_length=self.tokenizer.model_max_length,
-#             truncation=True,
-#         ).input_ids[0]
-#
-#         positive_doc_attention_mask = positive_doc_ids.ne(self.tokenizer.pad_token_id)
-#
-#         if 'hard_negative' in raw_data:
-#             all_hard_negative = raw_data['hard_negative']
-#             hard_negative_docs = random.sample(all_hard_negative, self.n_hard_negative)
-#         else:
-#             hard_negative_docs = []
-#
-#         hard_negative_docs_ids = []
-#         hard_negative_docs_attention_mask = []
-#
-#         for j, hard_negative_doc in enumerate(hard_negative_docs):
-#             # hard_negative_doc = hard_negative_doc + self.tokenizer.eos_token + ' ' + self.representation_token * self.representation_token_num
-#             hard_negative_doc = add_special_token_for_sequence_embedding(hard_negative_doc,
-#                                                                          eos_token=self.tokenizer.eos_token,
-#                                                                          representation_token=self.representation_token,
-#                                                                          representation_token_num=self.representation_token_num)
-#             hard_negative_doc_ids = self.tokenizer(
-#                 hard_negative_doc,
-#                 return_tensors="pt",
-#                 padding="max_length",
-#                 max_length=self.tokenizer.model_max_length,
-#                 truncation=True,
-#             ).input_ids[0]
-#             hard_negative_docs_ids.append(hard_negative_doc_ids)
-#             hard_negative_docs_attention_mask.append(hard_negative_doc_ids.ne(self.tokenizer.pad_token_id))
-#
-#         if len(hard_negative_docs_ids) > 0:
-#             hard_negative_docs_ids = torch.cat(hard_negative_docs_ids, dim=0)
-#             hard_negative_docs_attention_mask = torch.cat(hard_negative_docs_attention_mask, dim=0)
-#             # hard_negative_docs_ids = hard_negative_docs_ids.unsqueeze(0)
-#             # hard_negative_docs_attention_mask = hard_negative_docs_attention_mask.unsqueeze(0)
-#
-#             result = dict(query_ids=query_ids, query_attention_mask=query_attention_mask,
-#                           positive_doc_ids=positive_doc_ids, positive_doc_attention_mask=positive_doc_attention_mask,
-#                           hard_negative_docs_ids=hard_negative_docs_ids,
-#                           hard_negative_docs_attention_mask=hard_negative_docs_attention_mask)
-#         else:
-#             result = dict(query_ids=query_ids, query_attention_mask=query_attention_mask,
-#                           positive_doc_ids=positive_doc_ids, positive_doc_attention_mask=positive_doc_attention_mask)
-#         # for k,v in result.items():
-#         #     print('{}: {}'.format(k,v.size()))
-#
-#         for k, v in result.items():
-#             result[k] = v.tolist()
-#
-#         # print('in RetrievalDataset.__getitem__, i: {}, result keys: {}'.format(i,result.keys()))
-#
-#         return result
-
-
 def train():
     global local_rank
 
@@ -565,8 +383,6 @@ def train():
         (ModelArguments, DataArguments, TrainingArguments, LoraArguments)
     )
     model_args, data_args, training_args, lora_args = parser.parse_args_into_dataclasses()
-
-    assert data_args.pseudo_psg_root_dir != None
 
     if training_args.per_device_train_batch_size <= training_args.chunk_sizes:
         print('total batch size < grad_cache chunk size, so disable grad_cache')
@@ -580,7 +396,6 @@ def train():
     args_dict['data_args'] = data_args.__dict__
     args_dict['training_args'] = training_args.__dict__
     args_dict['lora_args'] = lora_args.__dict__
-
     # print(args_dict['data_args']['data_semple_config'])
 
     with jsonlines.open(args_output_fp, 'w') as args_output_f:
@@ -636,8 +451,7 @@ def train():
     config.output_hidden_states = True
 
     # Load model and tokenizer
-
-    if 'mistral' in model_args.model_name_or_path:
+    if 'mistral' in model_args.model_name_or_path or 'gemma' in model_args.model_name_or_path or 'internlm2' in model_args.model_name_or_path:
         if training_args.bf16:
             if training_args.flash_attention:
                 model = transformers.AutoModelForCausalLM.from_pretrained(
@@ -654,17 +468,13 @@ def train():
                     model_args.model_name_or_path,
                     config=config,
                     cache_dir=training_args.cache_dir,
-                    # torch_dtype=torch.bfloat16
+                    trust_remote_code=model_args.trust_remote_code,
+                    torch_dtype=torch.bfloat16
                 )
                 logger.info('not use flash attention')
         else:
             raise NotImplementedError
-            model = transformers.AutoModelForCausalLM.from_pretrained(
-                model_args.model_name_or_path,
-                config=config,
-                cache_dir=training_args.cache_dir,
-                trust_remote_code=model_args.trust_remote_code,
-            )
+        
     else:
         model = transformers.AutoModelForCausalLM.from_pretrained(
             model_args.model_name_or_path,
@@ -682,7 +492,7 @@ def train():
         trust_remote_code=model_args.trust_remote_code,
     )
 
-    if 'mistral' in model_args.model_name_or_path:
+    if 'mistral' in model_args.model_name_or_path or 'gemma' in model_args.model_name_or_path or 'internlm2' in model_args.model_name_or_path:
         # 31996
         representation_id = model_args.representation_id
     else:
@@ -701,10 +511,12 @@ def train():
 
         if training_args.gradient_checkpointing:
             model.enable_input_require_grads()
-
+        
         model.print_trainable_parameters()
+
     original_llm_model = model
-    print('model.attention_dropout: {}'.format(model.config.attention_dropout))
+    if hasattr(config, 'attention_dropout'):
+        print('model.attention_dropout: {}'.format(model.config.attention_dropout))
     model = DenseEmbedder(model, representation_id=representation_id, config=config)
     model.representation_token_num = model_args.representation_token_num
 
@@ -712,18 +524,16 @@ def train():
         tokenizer.pad_token = tokenizer.unk_token
 
     # Load data
-    # retrieval_train_raw = list(jsonlines.open(data_args.data_path))
-    retrieval_train_dataset = RetrievalDataset(args_dict, data_args.data_root_dir, data_args.pseudo_psg_root_dir,
-                                               training_args.n_hard_negative,
+    retrieval_train_dataset = RetrievalDataset(args_dict, data_args.data_root_dir, training_args.n_hard_negative,
                                                tokenizer,
                                                representation_id, model_args.representation_token_num,
                                                query_max_length=training_args.query_max_length,
                                                doc_max_length=training_args.doc_max_length,
                                                wrap_q_p=model_args.wrap_q_p)
-    show_example = retrieval_train_dataset[0]
-    # rank0_print('training example:\nquery:\n{}\npositive:\n{}\negative:\n{}\n'.format(show_example['query_ids'],
-    #                                                                             show_example['positive_doc_ids'],
-    #                                                                             show_example['hard_negative_docs_ids']))
+
+    if 'synthetic' in retrieval_train_dataset.raw_data_task_to_dict:
+        assert training_args.query_max_length==512
+        assert training_args.doc_max_length==512
 
     # Start trainner
     trainer = My_Trainer(
@@ -734,12 +544,6 @@ def train():
         logger.info('set trainer.accelerator for batch_same_task=True')
         trainer.accelerator.device_placement = True
         trainer.accelerator.dispatch_batches = True
-
-        # from my_trainer import _get_train_sampler_for_batch_same_task, get_train_dataloader_for_batch_same_task
-        #
-        #
-        # trainer._get_train_sampler = _get_train_sampler_for_batch_same_task
-        # trainer.get_train_dataloader = get_train_dataloader_for_batch_same_task
 
     trainer.set_data_collator()
     if training_args.do_grad_cache:

@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch
-from grad_cache.grad_cache import GradCache
-from grad_cache.loss import DistributedContrastiveLoss
+from conretriever.grad_cache import GradCache
+from conretriever.grad_cache.loss import DistributedContrastiveLoss
 from transformers import PreTrainedModel
 
 

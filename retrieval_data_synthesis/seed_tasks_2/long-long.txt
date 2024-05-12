@@ -1,0 +1,37 @@
+Given a document that supports a debatable argument, find another document that contains opposite arguments.
+Provided a lengthy business proposal, retrieve competitive business strategies in the same industry.
+Given an argument, retrieve documents that argue against it.
+Given a passage, retrieve passages which criticize it.
+Given a news article, retrieve news articles that contain the opposite information.
+Given a paper introduction, retrieve other paper introduction that verify or refute its conclusion.
+Given a paper abstract, retrieve other paper that are cited by the paper.
+Given an invention, retrieve news articles that appreciate it.
+Given a technology introduction, retrieve passages about it disadvantages.
+Given a scientific theory, retrieve articles that debunk it.
+Given a conspiracy theory, retrieve articles that refute it.
+Given a theory introduction, retrieve passages that support it.
+Given a passage, retrieve passages that review it.
+Given a scientific theory, find its evidence documents.
+Given a passage, retrieve relevant questions to it.
+Given a movie script, find its relevant characters' introduction.
+Given the script of a suspenseful movie, find its plot Analyses.
+Given a paper abstract, retrieve sections discussing the experimental results.
+Given the experimental result in a scientific paper, retrieve its abstract.
+Given a biography, retrieve passages that illustrate the person's achievements in details.
+Given the script of a comedy movie, retrieve news articles arguing that the movie is not sufficiently humorous.
+Given a meme, retrieve articles that explain its origin and development.
+Given a public figure's biography, retrieve news articles that doubt his achievements.
+Given a city's tourism guide, retrieve sections explaining historical landmarks.
+Given a financial report, retrieve news articles discussing the company's financial health.
+Given a business plan, retrieve sections discussing financial projections.
+Given a historical document, retrieve scholarly articles discussing its significance.
+Given a social media post, retrieve other posts from users with similar interests and behaviors.
+Given a weather forecast, retrieve news articles that discuss potential weather-related dangers.
+Given a book summary, retrieve the introduction of other books that have the opposite argument with it.
+Given a theory, retrieve the descriptions of experiment which conclude it.
+Given a medical record, retrieve research papers discussing treatment options.
+Given a sports game summary, retrieve articles that discuss the game.
+Given a patent application, retrieve patents with overlapping claims
+Given a financial report, retrieve analysis and commentary related to it
+Given a war memoir, retrieve historical accounts of the same period.
+Given the end of a story, retrieve the beginning of the story

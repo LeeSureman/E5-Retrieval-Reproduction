@@ -2,16 +2,11 @@ from typing import List, Union, Callable, Any
 from contextlib import nullcontext
 from itertools import repeat
 from collections import UserDict
-import logging
-
 import torch
 from torch import nn, Tensor
 from torch.cuda.amp import GradScaler, autocast
-
-from grad_cache.context_managers import RandContext
+from conretriever.grad_cache.context_managers import RandContext
 from torch import distributed as dist
-
-logger = logging.getLogger(__name__)
 
 
 class GradCache:
@@ -49,7 +44,6 @@ class GradCache:
         """
         self.models = models
         self.do_cache = do_cache
-
 
         if isinstance(chunk_sizes, int):
             self.chunk_sizes = [chunk_sizes for _ in range(len(models))]
@@ -278,10 +272,9 @@ class GradCache:
 
         for model_input in model_inputs:
             for tmp_x in model_input:
-                tmp_max_seq_len = torch.max(torch.sum(tmp_x['attention_mask'],dim=1))
-                tmp_x['input_ids'] = tmp_x['input_ids'][:,:tmp_max_seq_len]
+                tmp_max_seq_len = torch.max(torch.sum(tmp_x['attention_mask'], dim=1))
+                tmp_x['input_ids'] = tmp_x['input_ids'][:, :tmp_max_seq_len]
                 tmp_x['attention_mask'] = tmp_x['attention_mask'][:, :tmp_max_seq_len]
-                # logger.info('tmp_max_seq_len:{}, tmp_x["input_ids"]:{}, tmp_x["attention_mask"]:{}'.format(tmp_max_seq_len, tmp_x['input_ids'].size(), tmp_x['attention_mask'].size()))
 
         for model, x in zip(self.models, model_inputs):
             model_reps, rnd_states = self.forward_no_grad(model, x)
@@ -289,10 +282,6 @@ class GradCache:
             all_rnd_states.append(rnd_states)
 
         cache, loss = self.build_cache(*all_reps, **loss_kwargs)
-        # if dist.get_rank() == 0:
-        #     print('cache[0]: {}'.format(cache[0][:2][:8]))
-        #     print('cache[1]: {}'.format(cache[1][:2][:8]))
-        # print(type(cache[0]))
         cache = [c.split(chunk_size) for c, chunk_size in zip(cache, self.chunk_sizes)]
 
         for model, x, model_cache, rnd_states in zip(
@@ -301,14 +290,13 @@ class GradCache:
 
         return loss
 
-    def no_cache_get_loss(self, *reps: Tensor, **loss_kwargs) -> [List[Tensor], Tensor]:
+    def no_cache_get_loss(self, *reps: Tensor, **loss_kwargs) -> Tensor:
         """
-        Compute the gradient cache
+        Compute loss without cache
         :param reps: Computed representations from all encoder models
         :param loss_kwargs: Extra keyword arguments to the loss function
-        :return: A tuple of a) gradient cache for each encoder model, and b) loss tensor
+        :return: loss tensor
         """
-        # reps = [r.detach().requires_grad_() for r in reps]
         with autocast() if self.fp16 else nullcontext():
             loss = self.compute_loss(*reps, **loss_kwargs)
 
@@ -323,19 +311,16 @@ class GradCache:
             self,
             model: nn.Module,
             model_inputs,
-    ) -> [Tensor, List[RandContext]]:
+    ) -> Tensor:
         """
-        The first forward pass without gradient computation.
+        The first forward pass with gradient computation.
         :param model: Encoder model.
         :param model_inputs: Model input already broken into chunks.
-        :return: A tuple of a) representations and b) recorded random states.
+        :return: A tuple of representations.
         """
-
         model_reps = []
 
-        # with torch.no_grad():
         for x in model_inputs:
-            # rnd_states.append(RandContext(*self.get_input_tensors(x)))
             y = self.model_call(model, x)
             model_reps.append(self.get_reps(y))
 
@@ -343,13 +328,14 @@ class GradCache:
         model_reps = torch.cat(model_reps, dim=0)
         return model_reps
 
-    def no_cache_step(self,
-                      *model_inputs,
-                      no_sync_except_last: bool = False,
-                      **loss_kwargs):
-
+    def no_cache_step(
+        self,
+        *model_inputs,
+        no_sync_except_last: bool = False,
+        **loss_kwargs
+    ) -> Tensor:
+        
         all_reps = []
-
         if no_sync_except_last:
             assert all(map(lambda m: isinstance(m, nn.parallel.DistributedDataParallel), self.models)), \
                 'Some of models are not wrapped in DistributedDataParallel. Make sure you are running DDP with ' \
@@ -358,20 +344,15 @@ class GradCache:
         model_inputs = [self.split_inputs(x, chunk_size) for x, chunk_size in zip(model_inputs, self.chunk_sizes)]
         for model_input in model_inputs:
             for tmp_x in model_input:
-                tmp_max_seq_len = torch.max(torch.sum(tmp_x['attention_mask'],dim=1))
-                tmp_x['input_ids'] = tmp_x['input_ids'][:,:tmp_max_seq_len]
+                tmp_max_seq_len = torch.max(torch.sum(tmp_x['attention_mask'], dim=1))
+                tmp_x['input_ids'] = tmp_x['input_ids'][:, :tmp_max_seq_len]
                 tmp_x['attention_mask'] = tmp_x['attention_mask'][:, :tmp_max_seq_len]
 
-        if hasattr(self, 'debug'):
-            for model, x in zip(self.models, model_inputs):
-                model_reps = self.forward_with_grad(model, x)
-                all_reps.append(model_reps)
-        else:
-            for model, x in zip(self.models, model_inputs):
-                model_reps = self.forward_with_grad(model, x)
-                all_reps.append(model_reps)
+        for model, x in zip(self.models, model_inputs):
+            model_reps = self.forward_with_grad(model, x)
+            all_reps.append(model_reps)
 
-        if hasattr(self,'debug'):
+        if hasattr(self, 'debug'):
             for rep in all_reps:
                 rep.retain_grad()
 
@@ -379,10 +360,4 @@ class GradCache:
             self.models[0].p_reps = all_reps[1]
 
         loss = self.no_cache_get_loss(*all_reps, **loss_kwargs)
-        if hasattr(self,'debug'):
-            if dist.get_rank() == 0:
-                print('all_reps[0]:{}'.format(all_reps[0].size()))
-                print('all_reps[0]:{}'.format(all_reps[0].grad))
-
         return loss
-

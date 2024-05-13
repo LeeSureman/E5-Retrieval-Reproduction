@@ -6,63 +6,16 @@ import torch.nn as nn
 if is_peft_available():
     from peft import PeftModel
 
-from transformers.models.auto.modeling_auto import MODEL_FOR_CAUSAL_LM_MAPPING_NAMES, MODEL_MAPPING_NAMES
+from transformers.models.auto.modeling_auto import MODEL_FOR_CAUSAL_LM_MAPPING_NAMES
 from modeling_retriever import retrieval_forward
 from transformers.data.data_collator import DataCollatorWithPadding
-from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Union
 from transformers.tokenization_utils_base import BatchEncoding
-from torch.utils.data import DataLoader, Dataset, RandomSampler, SequentialSampler, DistributedSampler
-import datasets
-from transformers.utils import is_datasets_available
-from transformers.trainer_utils import seed_worker
-from accelerate import Accelerator, skip_first_batches
-
-from utils import _setup_logger
-
-from accelerate.utils import (
-    DistributedDataParallelKwargs,
-    DistributedType,
-    GradientAccumulationPlugin,
-    load_fsdp_model,
-    load_fsdp_optimizer,
-    save_fsdp_model,
-    save_fsdp_optimizer,
-)
-
-from transformers.trainer_pt_utils import (
-    AcceleratorConfig,
-    DistributedTensorGatherer,
-    IterableDatasetShard,
-    LabelSmoother,
-    LengthGroupedSampler,
-    SequentialDistributedSampler,
-    distributed_broadcast_scalars,
-    distributed_concat,
-    find_batch_size,
-    get_dataloader_sampler,
-    get_model_param_count,
-    get_module_class_from_name,
-    get_parameter_names,
-    nested_concat,
-    nested_detach,
-    nested_numpify,
-    nested_xla_mesh_reduce,
-    reissue_pt_warnings,
-    remove_dummy_checkpoint,
-)
-
-logger = _setup_logger()
-
+from torch.utils.data import SequentialSampler
 import torch.distributed as dist
 
-def gather_tensor(t):
-    gathered = [torch.empty_like(t) for _ in range(dist.get_world_size())]
-    dist.all_gather(gathered, t)
-    gathered = torch.cat(gathered, dim=0)
-    return gathered
 
-
-class MyDataCollatorWithPadding(DataCollatorWithPadding):
+class RetrieverDataCollatorWithPadding(DataCollatorWithPadding):
     """
     Data collator that will dynamically pad the inputs received.
 
@@ -90,10 +43,7 @@ class MyDataCollatorWithPadding(DataCollatorWithPadding):
     """
 
     def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, Any]:
-        # print(features)
         batch_size = len(features)
-        # print('features:{}'.format(len(features)))
-        # print('features keys:{}'.format(features[0].keys()))
 
         batch_outputs = {}
         for i in range(batch_size):
@@ -103,20 +53,14 @@ class MyDataCollatorWithPadding(DataCollatorWithPadding):
                     batch_outputs[key] = []
                 batch_outputs[key].append(value)
 
-        # for k,v in batch_outputs.items():
-        #     batch_outputs[k] = torch.cat(torch.tensor(v),dim=0)
-
         result = BatchEncoding(batch_outputs, tensor_type=self.return_tensors)
-        # for k,v in result.items():
-        #     print('{}: {}'.format(k,v.size()))
         return result
 
 
-class My_Trainer(Trainer):
+class Retriever_Trainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False):
         """
         How the loss is computed by Trainer. By default, all models return the loss in the first element.
-
         Subclass and override for custom behavior.
         """
         if self.label_smoother is not None and "labels" in inputs:
@@ -124,17 +68,23 @@ class My_Trainer(Trainer):
         else:
             labels = None
 
-        # outputs = model(**inputs)
         if 'hard_negative_docs_ids' not in inputs:
             inputs['hard_negative_docs_ids'] = None
             inputs['hard_negative_docs_attention_mask'] = None
 
-        outputs = retrieval_forward(model,
-                                    inputs['query_ids'], inputs['query_attention_mask'],
-                                    inputs['positive_doc_ids'], inputs['positive_doc_attention_mask'],
-                                    inputs['hard_negative_docs_ids'], inputs['hard_negative_docs_attention_mask'],
-                                    chunk_sizes=self.chunk_sizes, do_grad_cache=self.args.do_grad_cache,
-                                    n_hard_negative=self.args.n_hard_negative, temperature=self.args.temperature)
+        outputs = retrieval_forward(
+            model,
+            inputs['query_ids'], 
+            inputs['query_attention_mask'],
+            inputs['positive_doc_ids'], 
+            inputs['positive_doc_attention_mask'],
+            inputs['hard_negative_docs_ids'], 
+            inputs['hard_negative_docs_attention_mask'],
+            chunk_sizes=self.chunk_sizes, 
+            do_grad_cache=self.args.do_grad_cache,
+            n_hard_negative=self.args.n_hard_negative, 
+            temperature=self.args.temperature
+        )
 
         # Save past state if it exists
         # TODO: this needs to be fixed and made cleaner later.
@@ -163,9 +113,8 @@ class My_Trainer(Trainer):
         return (loss, outputs) if return_outputs else loss
 
     def set_data_collator(self):
-        self.data_collator = MyDataCollatorWithPadding(self.tokenizer)
+        self.data_collator = RetrieverDataCollatorWithPadding(self.tokenizer)
 
-    # def training_step(self, *args, **kwargs):
     def training_step(self, model: nn.Module, inputs: Dict[str, Union[torch.Tensor, Any]]) -> torch.Tensor:
         if self.args.batch_same_task:
             # check batch is from the same task
@@ -177,7 +126,6 @@ class My_Trainer(Trainer):
                 print('task_id: {}, task: {}'.format(tid, task))
 
         result = super().training_step(model, inputs)
-
         return result
 
     def _get_train_sampler(self):

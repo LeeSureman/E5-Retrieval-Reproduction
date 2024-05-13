@@ -1,54 +1,19 @@
-from transformers.models.mistral.modeling_mistral import (
-MistralForCausalLM
-)
-from transformers.models.gemma.modeling_gemma import (
-GemmaForCausalLM
-)
-from transformers.models.mistral.configuration_mistral import MistralConfig
+from transformers.models.mistral.modeling_mistral import MistralForCausalLM
+from transformers.models.gemma.modeling_gemma import GemmaForCausalLM
 import torch
-import inspect
-import math
-import warnings
 from typing import List, Optional, Tuple, Union
-
-import torch
-import torch.nn.functional as F
 import torch.utils.checkpoint
-from torch import nn
-from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
-
-from transformers.activations import ACT2FN
-from transformers.cache_utils import Cache, DynamicCache
-from transformers.modeling_attn_mask_utils import _prepare_4d_causal_attention_mask, _prepare_4d_causal_attention_mask_for_sdpa
-from transformers.modeling_outputs import BaseModelOutputWithPast, CausalLMOutputWithPast, SequenceClassifierOutputWithPast
-from transformers.modeling_utils import PreTrainedModel
-from transformers.utils import (
-    add_start_docstrings,
-    add_start_docstrings_to_model_forward,
-    is_flash_attn_2_available,
-    is_flash_attn_greater_or_equal_2_10,
-    logging,
-    replace_return_docstrings,
-)
-
+from torch.nn import CrossEntropyLoss
+from transformers.modeling_outputs import CausalLMOutputWithPast
+from transformers.utils import logging
 from dataclasses import dataclass
-
-
-if is_flash_attn_2_available():
-    from flash_attn import flash_attn_func, flash_attn_varlen_func
-    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
-
-    _flash_supports_window_size = "window_size" in list(inspect.signature(flash_attn_func).parameters)
-
 
 logger = logging.get_logger(__name__)
 
-_CONFIG_FOR_DOC = "MistralConfig"
 
 @dataclass
 class MyCausalLMOutputWithPast(CausalLMOutputWithPast):
     last_hidden_state: Optional[torch.FloatTensor] = None
-
 
 
 def mistral_forward(
@@ -64,12 +29,9 @@ def mistral_forward(
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
 ) -> Union[Tuple, CausalLMOutputWithPast]:
-
-
+    
     output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
-    output_hidden_states = (
-        output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
-    )
+    output_hidden_states = output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
     return_dict = return_dict if return_dict is not None else self.config.use_return_dict
 
     # decoder outputs consists of (dec_features, layer_state, dec_hidden, dec_attn)
@@ -160,9 +122,7 @@ def gemma_forward(
     "What is your favorite condiment?"
     ```"""
     output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
-    output_hidden_states = (
-        output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
-    )
+    output_hidden_states = output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
     return_dict = return_dict if return_dict is not None else self.config.use_return_dict
 
     # decoder outputs consists of (dec_features, layer_state, dec_hidden, dec_attn)
@@ -248,9 +208,7 @@ def internlm2_forward(
     ```"""
 
     output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
-    output_hidden_states = (
-        output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
-    )
+    output_hidden_states = output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
     return_dict = return_dict if return_dict is not None else self.config.use_return_dict
 
     # decoder outputs consists of (dec_features, layer_state, dec_hidden, dec_attn)
@@ -286,14 +244,6 @@ def internlm2_forward(
     if not return_dict:
         output = (logits,) + outputs[1:]
         return (loss,) + output if loss is not None else output
-
-    # return CausalLMOutputWithPast(
-    #     loss=loss,
-    #     logits=logits,
-    #     past_key_values=outputs.past_key_values,
-    #     hidden_states=outputs.hidden_states,
-    #     attentions=outputs.attentions,
-    # )
 
     return MyCausalLMOutputWithPast(
         loss=None,

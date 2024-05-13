@@ -14,7 +14,6 @@ MODEL_NAME_TO_POOL_TYPE = {
     'repllama-v1-7b-lora-passage': 'last',
 }
 
-
 MODEL_NAME_TO_PREFIX_TYPE = {
     'e5-small': 'query_or_passage',
     'e5-base': 'query_or_passage',

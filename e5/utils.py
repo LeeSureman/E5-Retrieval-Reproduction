@@ -1,6 +1,5 @@
 import torch
 import logging
-
 from torch import Tensor
 from transformers import PreTrainedTokenizerFast, BatchEncoding
 from typing import Mapping, Dict, List
@@ -70,8 +69,13 @@ def pool(last_hidden_states: Tensor,
     return emb
 
 
-def create_batch_dict(tokenizer: PreTrainedTokenizerFast, input_texts: List[str], always_add_eos: bool,
-                      max_length: int = 512) -> BatchEncoding:
+def create_batch_dict(
+    tokenizer: PreTrainedTokenizerFast, 
+    input_texts: List[str], 
+    always_add_eos: bool,
+    max_length: int = 512
+) -> BatchEncoding:
+    
     if not always_add_eos:
         return tokenizer(
             input_texts,
@@ -104,21 +108,13 @@ def create_batch_dict(tokenizer: PreTrainedTokenizerFast, input_texts: List[str]
         )
 
 
-def add_special_token_for_sequence_embedding(input_str, eos_token, representation_token, representation_token_num):
-    result = representation_token * representation_token_num
-    return result
-
-
-def my_create_batch_dict(tokenizer: PreTrainedTokenizerFast, input_texts: List[str], representation_token, representation_token_num,
+def create_batch_dict(tokenizer: PreTrainedTokenizerFast, input_texts: List[str], representation_token, representation_token_num,
                          max_length: int = 512) -> BatchEncoding:
     assert tokenizer.add_bos_token
-    representation_special_tokens = add_special_token_for_sequence_embedding('', tokenizer.eos_token,
-                                                                             representation_token=representation_token,
-                                                                             representation_token_num=representation_token_num)
+    representation_special_tokens = representation_token * representation_token_num
     representation_special_ids = tokenizer(representation_special_tokens)['input_ids'][1:]
 
     representation_special_tokens_num = len(representation_special_ids)
-    # print('representation_special_tokens_num: {}'.format(representation_special_tokens_num))
 
     batch_dict = tokenizer(
         input_texts,
@@ -130,7 +126,6 @@ def my_create_batch_dict(tokenizer: PreTrainedTokenizerFast, input_texts: List[s
     )
 
     # append eos_token_id to every input_ids
-
     batch_dict['input_ids'] = [input_ids + representation_special_ids for input_ids in batch_dict['input_ids']]
     return tokenizer.pad(
         batch_dict,
@@ -143,79 +138,6 @@ def my_create_batch_dict(tokenizer: PreTrainedTokenizerFast, input_texts: List[s
 
 
 def get_task_def_by_task_name_and_type(task_name: str, task_type: str) -> str:
-    if task_type in ['STS']:
-        return "Retrieve semantically similar text."
-
-    if task_type in ['Summarization']:
-        return "Given a news summary, retrieve other semantically similar summaries"
-
-    if task_type in ['BitextMining']:
-        return "Retrieve parallel sentences."
-
-    if task_type in ['Classification']:
-        task_name_to_instruct: Dict[str, str] = {
-            'AmazonCounterfactualClassification': 'Classify a given Amazon customer review text as either counterfactual or not-counterfactual',
-            'AmazonPolarityClassification': 'Classify Amazon reviews into positive or negative sentiment',
-            'AmazonReviewsClassification': 'Classify the given Amazon review into its appropriate rating category',
-            'Banking77Classification': 'Given a online banking query, find the corresponding intents',
-            'EmotionClassification': 'Classify the emotion expressed in the given Twitter message into one of the six emotions: anger, fear, joy, love, sadness, and surprise',
-            'ImdbClassification': 'Classify the sentiment expressed in the given movie review text from the IMDB dataset',
-            'MassiveIntentClassification': 'Given a user utterance as query, find the user intents',
-            'MassiveScenarioClassification': 'Given a user utterance as query, find the user scenarios',
-            'MTOPDomainClassification': 'Classify the intent domain of the given utterance in task-oriented conversation',
-            'MTOPIntentClassification': 'Classify the intent of the given utterance in task-oriented conversation',
-            'ToxicConversationsClassification': 'Classify the given comments as either toxic or not toxic',
-            'TweetSentimentExtractionClassification': 'Classify the sentiment of a given tweet as either positive, negative, or neutral',
-            # C-MTEB eval instructions
-            'TNews': 'Classify the fine-grained category of the given news title',
-            'IFlyTek': 'Given an App description text, find the appropriate fine-grained category',
-            'MultilingualSentiment': 'Classify sentiment of the customer review into positive, neutral, or negative',
-            'JDReview': 'Classify the customer review for iPhone on e-commerce platform into positive or negative',
-            'OnlineShopping': 'Classify the customer review for online shopping into positive or negative',
-            'Waimai': 'Classify the customer review from a food takeaway platform into positive or negative',
-        }
-        return task_name_to_instruct[task_name]
-
-    if task_type in ['Clustering']:
-        task_name_to_instruct: Dict[str, str] = {
-            'ArxivClusteringP2P': 'Identify the main and secondary category of Arxiv papers based on the titles and abstracts',
-            'ArxivClusteringS2S': 'Identify the main and secondary category of Arxiv papers based on the titles',
-            'BiorxivClusteringP2P': 'Identify the main category of Biorxiv papers based on the titles and abstracts',
-            'BiorxivClusteringS2S': 'Identify the main category of Biorxiv papers based on the titles',
-            'MedrxivClusteringP2P': 'Identify the main category of Medrxiv papers based on the titles and abstracts',
-            'MedrxivClusteringS2S': 'Identify the main category of Medrxiv papers based on the titles',
-            'RedditClustering': 'Identify the topic or theme of Reddit posts based on the titles',
-            'RedditClusteringP2P': 'Identify the topic or theme of Reddit posts based on the titles and posts',
-            'StackExchangeClustering': 'Identify the topic or theme of StackExchange posts based on the titles',
-            'StackExchangeClusteringP2P': 'Identify the topic or theme of StackExchange posts based on the given paragraphs',
-            'TwentyNewsgroupsClustering': 'Identify the topic or theme of the given news articles',
-            # C-MTEB eval instructions
-            'CLSClusteringS2S': 'Identify the main category of scholar papers based on the titles',
-            'CLSClusteringP2P': 'Identify the main category of scholar papers based on the titles and abstracts',
-            'ThuNewsClusteringS2S': 'Identify the topic or theme of the given news articles based on the titles',
-            'ThuNewsClusteringP2P': 'Identify the topic or theme of the given news articles based on the titles and contents',
-        }
-        return task_name_to_instruct[task_name]
-
-    if task_type in ['Reranking', 'PairClassification']:
-        task_name_to_instruct: Dict[str, str] = {
-            'AskUbuntuDupQuestions': 'Retrieve duplicate questions from AskUbuntu forum',
-            'MindSmallReranking': 'Retrieve relevant news articles based on user browsing history',
-            'SciDocsRR': 'Given a title of a scientific paper, retrieve the titles of other relevant papers',
-            'StackOverflowDupQuestions': 'Retrieve duplicate questions from StackOverflow forum',
-            'SprintDuplicateQuestions': 'Retrieve duplicate questions from Sprint forum',
-            'TwitterSemEval2015': 'Retrieve tweets that are semantically similar to the given tweet',
-            'TwitterURLCorpus': 'Retrieve tweets that are semantically similar to the given tweet',
-            # C-MTEB eval instructions
-            'T2Reranking': 'Given a Chinese search query, retrieve web passages that answer the question',
-            'MMarcoReranking': 'Given a Chinese search query, retrieve web passages that answer the question',
-            'CMedQAv1': 'Given a Chinese community medical question, retrieve replies that best answer the question',
-            'CMedQAv2': 'Given a Chinese community medical question, retrieve replies that best answer the question',
-            'Ocnli': 'Retrieve semantically similar text.',
-            'Cmnli': 'Retrieve semantically similar text.',
-        }
-        return task_name_to_instruct[task_name]
-
     if task_type in ['Retrieval']:
         if task_name.lower().startswith('cqadupstack'):
             return 'Given a question, retrieve detailed question descriptions from Stackexchange that are duplicates to the given question'
@@ -267,5 +189,50 @@ def get_task_def_by_task_name_and_type(task_name: str, task_type: str) -> str:
 def get_detailed_instruct(task_description: str) -> str:
     if not task_description:
         return ''
-
     return 'Instruct: {}\nQuery: '.format(task_description)
+
+
+task_to_query_type = {
+    'ArguAna': 'a claim',
+    'ClimateFEVER': 'a claim about climate change',
+    'DBPedia': 'a query',
+    'FEVER': 'a claim',
+    'FiQA2018': 'a financial question',
+    'HotpotQA': 'a multi-hop question',
+    'MSMARCO': 'a web search query',
+    'NFCorpus': 'a question',
+    'NQ': 'a question',
+    'QuoraRetrieval': 'a question',
+    'SCIDOCS': 'a scientific paper title',
+    'SciFact': 'a scientific claim',
+    'Touche2020': 'a question',
+    'TRECCOVID': 'a query on COVID-19',
+}
+
+task_to_passage_type = {
+    'ArguAna': 'documents that refute the claim',
+    'ClimateFEVER': 'documents that support or refute the claim',
+    'DBPedia': 'relevant entity descriptions from DBPedia',
+    'FEVER': 'documents that support or refute the claim',
+    'FiQA2018': 'user replies that best answer the question',
+    'HotpotQA': 'supporting documents',
+    'MSMARCO': 'relevant passages that answer the query',
+    'NFCorpus': 'relevant documents that best answer the question',
+    'NQ': 'Wikipedia passages that answer the question',
+    'QuoraRetrieval': 'questions that have the same meaning as the question',
+    'SCIDOCS': 'paper abstracts that are cited by the given paper',
+    'SciFact': 'documents that support or refute the claim',
+    'Touche2020': 'detailed and persuasive arguments that answer the question',
+    'TRECCOVID': 'documents that answer the query',
+}
+
+
+def get_task_instruction_by_task_name(task_name):
+    instruction_template = 'Given {}, retrieve {}.'
+    if task_name.lower().startswith('cqadupstack'):
+        query_type = 'a question'
+        passage_type = 'detailed question descriptions from Stackexchange that are duplicates to the given question'
+        return instruction_template.format(query_type, passage_type)
+    else:
+        return instruction_template.format(task_to_query_type[task_name], task_to_passage_type[task_name])
+    

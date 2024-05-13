@@ -5,7 +5,7 @@ from collections import UserDict
 import torch
 from torch import nn, Tensor
 from torch.cuda.amp import GradScaler, autocast
-from conretriever.grad_cache.context_managers import RandContext
+from grad_cache.context_managers import RandContext
 from torch import distributed as dist
 
 

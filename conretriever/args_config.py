@@ -15,6 +15,7 @@ class LoraArguments:
 
 @dataclass
 class ModelArguments:
+    representation_id: int
     model_name_or_path: Optional[str] = field(default="mistralai/Mistral-7B-v0.1")
     trust_remote_code: bool = field(
         default=False,
@@ -24,7 +25,6 @@ class ModelArguments:
     )
     padding_side: str = field(default="right", metadata={"help": "The padding side in tokenizer"})
     representation_token_num: int = field(default=1)
-    representation_id: int
     wrap_q_p: str = field(default=None, metadata={"help": "The value can be `instruction` or `query_or_passage`"})
 
 @dataclass

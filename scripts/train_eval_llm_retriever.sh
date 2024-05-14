@@ -31,7 +31,7 @@ weight_decay="0"
 lr_scheduler_type="linear"
 warmup_ratio="0"
 warmup_steps="30"
-output_dir=conretriever/checkpoint_dir/demo-not-same
+output_dir=conretriever/checkpoint_dir/demo
 
 mkdir -p $output_dir
 logging_dir=""
@@ -88,36 +88,36 @@ torchrun --nproc_per_node=$nproc_per_node --master_port=42001 conretriever/train
     | tee -a $logging_file
 
 
-# ckpt_dir=conretriever/checkpoint_dir/demo
-# model_dtype=fp16
-# OUTPUT_DIR="$ckpt_dir/mteb_evaluation/$model_dtype"
-# mkdir -p $OUTPUT_DIR
+ckpt_dir=$output_dir
+model_dtype=fp16
+OUTPUT_DIR="$ckpt_dir/mteb_evaluation/$model_dtype"
+mkdir -p $OUTPUT_DIR
 
-# #task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval"
-# #task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS"
-# #task_names="ClimateFEVER FEVER HotpotQA MSMARCO NQ"
-# #task_names="NQ"
-# #task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval FEVER HotpotQA MSMARCO NQ ClimateFEVER DBPedia"
-# task_names="ArguAna"
+#task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval"
+#task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS"
+#task_names="ClimateFEVER FEVER HotpotQA MSMARCO NQ"
+#task_names="NQ"
+#task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval FEVER HotpotQA MSMARCO NQ ClimateFEVER DBPedia"
+task_names="ArguAna"
 
-# # small_task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval"
-# # cqadup_task_names="CQADupstackAndroidRetrieval CQADupstackEnglishRetrieval CQADupstackGamingRetrieval CQADupstackGisRetrieval CQADupstackMathematicaRetrieval CQADupstackPhysicsRetrieval CQADupstackProgrammersRetrieval CQADupstackStatsRetrieval CQADupstackTexRetrieval CQADupstackUnixRetrieval CQADupstackWebmastersRetrieval CQADupstackWordpressRetrieval"
-# # large_task_names="NQ DBPedia HotpotQA FEVER ClimateFEVER MSMARCO"
-# # task_names="$small_task_names $cqadup_task_names $large_task_names"
-# # task_names="$small_task_names $cqadup_task_names"
+# small_task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval"
+# cqadup_task_names="CQADupstackAndroidRetrieval CQADupstackEnglishRetrieval CQADupstackGamingRetrieval CQADupstackGisRetrieval CQADupstackMathematicaRetrieval CQADupstackPhysicsRetrieval CQADupstackProgrammersRetrieval CQADupstackStatsRetrieval CQADupstackTexRetrieval CQADupstackUnixRetrieval CQADupstackWebmastersRetrieval CQADupstackWordpressRetrieval"
+# large_task_names="NQ DBPedia HotpotQA FEVER ClimateFEVER MSMARCO"
+# task_names="$small_task_names $cqadup_task_names $large_task_names"
+# task_names="$small_task_names $cqadup_task_names"
 
-# CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES \
-# representation_token_num=$representation_token_num \
-# representation_id=$representation_id \
-# OUTPUT_DIR=$OUTPUT_DIR \
-# model_dtype=$model_dtype \
-# task_names=$task_names \
-# query_max_length=512 \
-# passage_max_length=512 \
-# wrap_q_p="instruction" \
-# force_retrieval_model="default" \
-# batch_per_gpu=128 \
-# pseudo_passage_fp="0" \
-# how_to_use_pseudo_passage="concat" \
-# doc_embedding_cache_dir="None" \
-# bash scripts/eval_mteb_beir.sh $ckpt_dir | tee -a "$OUTPUT_DIR/evaluation.log"
+CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES \
+representation_token_num=$representation_token_num \
+representation_id=$representation_id \
+OUTPUT_DIR=$OUTPUT_DIR \
+model_dtype=$model_dtype \
+task_names=$task_names \
+query_max_length=512 \
+passage_max_length=512 \
+wrap_q_p="instruction" \
+force_retrieval_model="default" \
+batch_per_gpu=128 \
+pseudo_passage_fp="0" \
+how_to_use_pseudo_passage="concat" \
+doc_embedding_cache_dir="None" \
+bash scripts/eval_mteb_beir.sh $ckpt_dir | tee -a "$OUTPUT_DIR/evaluation.log"

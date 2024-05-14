@@ -1,1 +1,3 @@
 conretriever/checkpoint_dir/*
+__pycache__
+synthesize/synthetic_data/*

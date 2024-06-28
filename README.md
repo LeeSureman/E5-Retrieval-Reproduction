@@ -6,6 +6,7 @@
 
 - [Install](#install)
 - [Train_Eval](#train_eval)
+- [Chceckpoint](#checkpoint)
 - [Synthesis](#synthesis)
 - [Acknowledgement](#acknowledgement)
 
@@ -13,7 +14,7 @@
 
 1. Clone this repository and navigate to the ConRetriever folder
 ```bash
-git clone url_path_to_this_repo
+git clone https://github.com/LeeSureman/ConRetriever
 cd ConRetriever
 ```
 
@@ -95,6 +96,10 @@ MistralForCausalLM(
 )
 """
 ```
+
+## Checkpoint
+
+We have released a model checkpoint fine-tuned from [mistralai/Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1), using data converted by the script [hf_to_training_data.py](./hf_to_training_data.py). You can access to the checkpoint [here](https://huggingface.co/BeastyZ/e5-R-mistral-7b)🤗.
 
 ## Synthesis
 

@@ -6,7 +6,7 @@
 
 - [Install](#install)
 - [Train_Eval](#train_eval)
-- [Chceckpoint](#checkpoint)
+- [Checkpoint](#checkpoint)
 - [Synthesis](#synthesis)
 - [Acknowledgement](#acknowledgement)
 

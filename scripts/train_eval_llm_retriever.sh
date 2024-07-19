@@ -31,7 +31,7 @@ weight_decay="0"
 lr_scheduler_type="linear"
 warmup_ratio="0"
 warmup_steps="30"
-output_dir=conretriever/checkpoint_dir/demo
+output_dir=llm_retriever_training/checkpoint_dir/demo
 
 mkdir -p $output_dir
 logging_dir=""
@@ -41,7 +41,7 @@ echo "output_dir=$output_dir"
 echo "logging_file=$logging_file"
 
 CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES \
-torchrun --nproc_per_node=$nproc_per_node --master_port=42001 conretriever/train_retriever.py \
+torchrun --nproc_per_node=$nproc_per_node --master_port=42001 llm_retriever_training/train_retriever.py \
     --model_name_or_path $model_name_or_path \
     --data_root_dir $data_root_dir \
     --bf16 True \

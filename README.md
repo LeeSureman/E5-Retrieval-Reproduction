@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ### Quick Reproduction
 
-If you do not consider the details and just want to quickly reproduce our results, simply execute the following commands in sequence.
+If you just want to quickly reproduce our training procedure and results, you can execute the following commands in sequence.
 
 ```bash
 # 1. This will download the training data to the folder `training_data/reproduction`
@@ -38,9 +38,9 @@ python download_training_data.py
 bash scripts/reproduction.sh
 ```
 
-### Detailed Configuration
+### Detailed Explanation
 
-Here, we show you how to reproduce our results or train other LLM-based dense retriever through detailed configuration. For simplicity, we will demonstrate you through a `demo`. The script for running `demo` is [train_eval_llm_retriever.sh](./scripts/train_eval_llm_retriever.sh). In the script, we use `mistralai/Mistral-7B-v0.1` as an example for illustration. Before training, three very important steps must be completed: **data preparation**, **determination of the transformer layer**, and **task configuration**.
+Here, we show you how to reproduce our results or train other LLM-based dense retriever in details. For simplicity, we will demonstrate you through a `demo`. The script for running `demo` is [train_eval_llm_retriever.sh](./scripts/train_eval_llm_retriever.sh). In the script, we use `mistralai/Mistral-7B-v0.1` as an example for illustration. Before training, three very important steps must be completed: **data preparation**, **determination of the transformer layer**, and **task configuration**.
 
 #### Data Preparation
 

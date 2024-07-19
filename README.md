@@ -58,7 +58,7 @@ demo
 ```
 Please check the sample data for more information: [demo.jsonl](./training_data/demo/demo.jsonl) and [synthetic.jsonl](./training_data/demo/synthetic.jsonl).
 
-Please use [hf_to_training_data.py](./hf_to_training_data.py) to download our data recipe and place it into the training data folder.
+Please use [hf_to_training_data.py](./hf_to_training_data.py) to download our overall training data and place it into the training data folder.
 
 Then, set the sampling ratio, query type, and message type in the file of [task_config.py](./conretriever/task_config.py).
 

@@ -1,20 +1,21 @@
 # ConRetriever
 
-[**ConRetriever**](./conretriever/) is desinged to use contrastive learning to train a large language model (LLM) as a retriever. We provide both [evaluation](./e5/) code and [synthetic data](./synthesize/) code simultaneously in this repository.
+
+This repository contatins the whole pipeline for reproducing the LLM-based dense retriever [E5-Mistral-7b-instruct](https://huggingface.co/intfloat/e5-mistral-7b-instruct), including training data, training and evaluation code.
 
 ## Contents
 
 - [Install](#install)
-- [Train_Eval](#train_eval)
+- [Training and Evaluation](#train_eval)
 - [Checkpoint](#checkpoint)
-- [Synthesis](#synthesis)
+- [Synthetic-Training-Data](#Synthetic-Training-Data)
 - [Acknowledgement](#acknowledgement)
 
 ## Install
 
 1. Clone this repository and navigate to the ConRetriever folder
 ```bash
-git clone https://github.com/LeeSureman/ConRetriever
+git clone https://github.com/LeeSureman/E5-Retrieval-Reproduction
 cd ConRetriever
 ```
 
@@ -101,7 +102,7 @@ MistralForCausalLM(
 
 We have released a model checkpoint fine-tuned from [mistralai/Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1), using data converted by the script [hf_to_training_data.py](./hf_to_training_data.py). You can access to the checkpoint [here](https://huggingface.co/BeastyZ/e5-R-mistral-7b)🤗.
 
-## Synthesis
+## Synthetic-Training-Data
 
 If you want to use synthetic data to train a model as a retriever, you need to first generate synthetic data using 1) [brainstorm_task.sh](./scripts/brainstorm_task.sh) and 2) [generate_examples.sh](./scripts/generate_examples.sh). We follow [[Wang et al., 2023]](https://arxiv.org/abs/2401.00368) to generate synthetic data.
 

@@ -93,18 +93,7 @@ model_dtype=fp16
 OUTPUT_DIR="$ckpt_dir/mteb_evaluation/$model_dtype"
 mkdir -p $OUTPUT_DIR
 
-#task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval"
-#task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS"
-#task_names="ClimateFEVER FEVER HotpotQA MSMARCO NQ"
-#task_names="NQ"
-#task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval FEVER HotpotQA MSMARCO NQ ClimateFEVER DBPedia"
 task_names="ArguAna"
-
-# small_task_names="ArguAna TRECCOVID Touche2020 FiQA2018 NFCorpus SciFact SCIDOCS QuoraRetrieval"
-# cqadup_task_names="CQADupstackAndroidRetrieval CQADupstackEnglishRetrieval CQADupstackGamingRetrieval CQADupstackGisRetrieval CQADupstackMathematicaRetrieval CQADupstackPhysicsRetrieval CQADupstackProgrammersRetrieval CQADupstackStatsRetrieval CQADupstackTexRetrieval CQADupstackUnixRetrieval CQADupstackWebmastersRetrieval CQADupstackWordpressRetrieval"
-# large_task_names="NQ DBPedia HotpotQA FEVER ClimateFEVER MSMARCO"
-# task_names="$small_task_names $cqadup_task_names $large_task_names"
-# task_names="$small_task_names $cqadup_task_names"
 
 CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES \
 representation_token_num=$representation_token_num \

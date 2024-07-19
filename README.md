@@ -1,4 +1,4 @@
-# ConRetriever
+# E5-Retrieval-Reproduction
 
 
 This repository contatins the whole pipeline for reproducing the LLM-based dense retriever [E5-Mistral-7b-instruct](https://huggingface.co/intfloat/e5-mistral-7b-instruct), including training data, training and evaluation code.
@@ -8,7 +8,7 @@ This repository contatins the whole pipeline for reproducing the LLM-based dense
 - [Install](#install)
 - [Training and Evaluation](#train_eval)
 - [Checkpoint](#checkpoint)
-- [Synthetic-Training-Data](#Synthetic-Training-Data)
+- [Synthetic-Training-Data](#synthetic-training-data)
 - [Acknowledgement](#acknowledgement)
 
 ## Install
@@ -27,9 +27,11 @@ pip install -r requirements.txt
 
 ## Train_Eval
 
-For simplicity, we place the training code and testing code in the same script named [train_eval_llm_retriever.sh](./scripts/train_eval_llm_retriever.sh).
+The script for training and evaluation is [train_eval_llm_retriever.sh](./scripts/train_eval_llm_retriever.sh).
 
-In the script, we use `mistralai/Mistral-7B-v0.1` as an example for illustration. Before beginning training, two very important steps must be completed: data preparation and determination of the transformer layer.
+In the script, we use `mistralai/Mistral-7B-v0.1` as an example for illustration.  
+
+Before beginning training, two very important steps must be completed: **data preparation** and **determination of the transformer layer**.
 
 ### Data Preparation
 
@@ -55,6 +57,8 @@ demo
 """
 ```
 Please check the sample data for more information: [demo.jsonl](./training_data/demo/demo.jsonl) and [synthetic.jsonl](./training_data/demo/synthetic.jsonl).
+
+Please use [hf_to_training_data.py](./hf_to_training_data.py) to download our data recipe and place it into the training data folder.
 
 Then, set the sampling ratio, query type, and message type in the file of [task_config.py](./conretriever/task_config.py).
 
@@ -100,11 +104,11 @@ MistralForCausalLM(
 
 ## Checkpoint
 
-We have released a model checkpoint fine-tuned from [mistralai/Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1), using data converted by the script [hf_to_training_data.py](./hf_to_training_data.py). You can access to the checkpoint [here](https://huggingface.co/BeastyZ/e5-R-mistral-7b)🤗.
+We have released a model checkpoint fine-tuned from [mistralai/Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1), using data converted by the script [hf_to_training_data.py](./hf_to_training_data.py). You can get the checkpoint [here](https://huggingface.co/BeastyZ/e5-R-mistral-7b)🤗.
 
 ## Synthetic-Training-Data
 
-If you want to use synthetic data to train a model as a retriever, you need to first generate synthetic data using 1) [brainstorm_task.sh](./scripts/brainstorm_task.sh) and 2) [generate_examples.sh](./scripts/generate_examples.sh). We follow [[Wang et al., 2023]](https://arxiv.org/abs/2401.00368) to generate synthetic data.
+If you want to manually synthesize the training data for retriever, you can run these scripts 1) [brainstorm_task.sh](./scripts/brainstorm_task.sh) and 2) [generate_examples.sh](./scripts/generate_examples.sh). We follow [[Wang et al., 2023]](https://arxiv.org/abs/2401.00368) to generate synthetic data.
 
 ## Acknowledgement
 

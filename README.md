@@ -34,7 +34,7 @@ If you just want to quickly reproduce our training procedure and results, you ca
 # 1. This will download the training data to the folder `training_data/reproduction`
 python download_training_data.py
 
-# 2. After downloading the training data, you can run the following command to train and evaluate the LLM-based dense retriever. The checkpoint will be saved to the folder `conretriever/checkpoint_dir/reproduction`.
+# 2. After downloading the training data, you can run the following command to train and evaluate the LLM-based dense retriever. The checkpoint will be saved to the folder `llm_retriever_training/checkpoint_dir/reproduction`.
 bash scripts/reproduction.sh
 ```
 
@@ -109,10 +109,10 @@ MistralForCausalLM(
 
 #### Task configuration
 
-Set the sampling weight, query type, and message type in the file of [task_config.py](./conretriever/task_config.py).
+Set the sampling weight, query type, and message type in the file of [task_config.py](./llm_retriever_training/task_config.py).
 
 
-After finishing the above three steps, you can run the command `bash scripts/train_eval_llm_retriever.sh` to train and evaluate the `demo`. The checkpoint will be saved to the folder `conretriever/checkpoint_dir/demo`.
+After finishing the above three steps, you can run the command `bash scripts/train_eval_llm_retriever.sh` to train and evaluate the `demo`. The checkpoint will be saved to the folder `llm_retriever_training/checkpoint_dir/demo`.
 
 ## Checkpoint
 

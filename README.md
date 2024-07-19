@@ -227,8 +227,8 @@ documents = [
     "Definition of summit for English Language Learners. : 1  the highest point of a mountain : the top of a mountain. : 2  the highest level. : 3  a meeting or series of meetings between the leaders of two or more governments."
 ]
 
-tokenizer = AutoTokenizer.from_pretrained('/remote-home/ctzhu/github_repo/ConRetriever-v2/ConRetriever/public_weight_mistral', trust_remote_code=True)
-model = AutoModel.from_pretrained('/remote-home/ctzhu/github_repo/ConRetriever-v2/ConRetriever/public_weight_mistral', trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
+tokenizer = AutoTokenizer.from_pretrained('BeastyZ/e5-R-mistral-7b', trust_remote_code=True)
+model = AutoModel.from_pretrained('BeastyZ/e5-R-mistral-7b', trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
 
 tokenizer.pad_token = tokenizer.unk_token
 
@@ -256,7 +256,9 @@ doc_embeddings = specific_token_pool(doc_outputs, doc_batch_dict)
 
 scores = (query_embeddings @ doc_embeddings.T) * 100
 print(scores.tolist())
-
+"""Output:
+[[71.7362289428711, 52.91046905517578], [46.448524475097656, 66.92733764648438]]
+"""
 ```
 
 ## Synthetic-Training-Data

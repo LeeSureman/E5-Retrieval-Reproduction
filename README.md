@@ -31,7 +31,7 @@ The script for training and evaluation is [train_eval_llm_retriever.sh](./script
 
 In the script, we use `mistralai/Mistral-7B-v0.1` as an example for illustration.  
 
-Before beginning training, two very important steps must be completed: **data preparation** and **determination of the transformer layer**.
+Before training, two very important steps must be completed: **data preparation** and **determination of the transformer layer**.
 
 ### Data Preparation
 

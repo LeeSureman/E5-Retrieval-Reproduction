@@ -5,13 +5,13 @@ This repository contatins the whole pipeline for reproducing the LLM-based dense
 
 ## Contents
 
-- [Install](#install)
+- [Environment](#environment)
 - [Training and Evaluation](#train_eval)
 - [Checkpoint](#checkpoint)
 - [Synthetic-Training-Data](#synthetic-training-data)
 - [Acknowledgement](#acknowledgement)
 
-## Install
+## Environment
 
 1. Clone this repository and navigate to the ConRetriever folder
 ```bash
